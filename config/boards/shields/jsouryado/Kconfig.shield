@@ -1,0 +1,2 @@
+config SHIELDS_JSOURYADO
+    def_bool $(shields_list_contains, jsouryado)
