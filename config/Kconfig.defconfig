@@ -1,5 +1,0 @@
-if SHIELDS_JSOURYADO
-
-config ZMK_KEYBOARD_NAME
-    default "jsouryado"
-endif;
