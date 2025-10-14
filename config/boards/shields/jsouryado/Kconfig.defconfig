@@ -11,4 +11,4 @@ if SHIELDS_JSOURYADO_LEFT || SHIELDS_JSOURYADO_RIGHT
 
 config ZMK_SPLIT
     default y
-endif;
+endif
