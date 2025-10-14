@@ -35,7 +35,7 @@ a/*
 //                | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp CUT    &kp UNDO   &kp UP       &kp REDO       &kp LSHFT
-   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp COPY   &kp LEFT   &kp DOWN     &kp RIGHT      &trans &trans
+   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp COPY   &kp LEFT   &kp DOWN     &kp RIGHT      &trans
    &kp LSHIFT   &bt BT_CLR   &trans       &trans       &trans         &kp PASTE  &kp HOME   &kp PAGE_UP  &kp PAGE_DOWN  &kp END
                              &kp LGUI     &trans       &kp SPACE      &kp RET    &trans     &kp RALT
                         >;
@@ -50,7 +50,7 @@ a/*
 //                | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp CUT    &kp UNDO   &kp UP       &kp REDO       &kp LSHFT
-   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp COPY   &kp LEFT   &kp DOWN     &kp RIGHT      &trans &trans
+   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp COPY   &kp LEFT   &kp DOWN     &kp RIGHT      &trans
    &kp LSHIFT   &bt BT_CLR   &trans       &trans       &trans         &kp PASTE  &kp HOME   &kp PAGE_UP  &kp PAGE_DOWN  &kp END
                              &kp LGUI     &trans       &kp SPACE      &kp RET    &trans     &kp RALT
                         >;
