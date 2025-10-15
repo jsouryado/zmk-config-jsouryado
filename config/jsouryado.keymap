@@ -30,10 +30,10 @@
 
         Cursor {
             bindings = <
-&trans  &trans  &trans  &trans  &kp K_CUT      &kp INSERT  &trans    &kp UP    &trans     &trans
-&trans  &trans  &trans  &trans  &kp K_CUT      &trans      &kp LEFT  &kp DOWN  &kp RIGHT  &trans
-&trans  &trans  &trans  &trans  &kp K_PASTE    &trans      &trans    &trans    &trans     &trans
-                &trans  &trans  &trans         &trans      &trans    &trans
+&trans  &trans  &trans  &trans  &kp K_CUT      &kp INSERT  &kp K_UNDO  &kp UP    &kp K_REDO  &trans
+&trans  &trans  &trans  &trans  &kp K_CUT      &kp DELETE  &kp LEFT    &kp DOWN  &kp RIGHT   &trans
+&trans  &trans  &trans  &trans  &kp K_PASTE    &kp TAB     &trans      &trans    &trans      &trans
+                &trans  &trans  &trans         &trans      &trans      &trans
             >;
         };
     };
