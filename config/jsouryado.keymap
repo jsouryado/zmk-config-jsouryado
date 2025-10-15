@@ -86,7 +86,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Default Layer";
+            display-name = "LAYER_QWERTY";
 
             // -----------------------------------------------------------------------------------------
             // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
@@ -102,7 +102,7 @@
             >;
         };
 
-        Cursor {
+        LAYER_Cursor {
             bindings = <
 &trans  &trans  &trans  &trans  &kp K_CUT      &kp INSERT  &kp K_UNDO  &kp UP       &kp K_REDO     &trans
 &trans  &trans  &trans  &trans  &kp K_CUT      &kp DELETE  &kp LEFT    &kp DOWN     &kp RIGHT      &trans
