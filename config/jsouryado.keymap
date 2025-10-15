@@ -15,7 +15,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "LAYER_QWERTY";
+            display-name = "Default layout";
 
             // -----------------------------------------------------------------------------------------
             // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
