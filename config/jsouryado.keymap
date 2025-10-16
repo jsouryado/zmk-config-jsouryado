@@ -114,15 +114,18 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&bt_select_3>, <&bt BT_DISC 3>;
-        };test: test {
+        };hm:hm {
       compatible = "zmk,behavior-hold-tap";
     
-         label = "TEST";
-         bindings = <&kp>, <&none>;
+         label = "HM";
+         bindings = <&kp>, <&kp>;
          #binding-cells = <2>;
          hold-trigger-key-positions = <10>;
          hold-trigger-on-release;
-         tapping-term-ms = <90>;};
+         tapping-term-ms = <400>;
+         quick-tap-ms = <400>;
+         require-prior-idle-ms = <400>;
+         flavor = "tap-preferred";};
     };
     macros {
         bt_select_0: bt_select_0 {
@@ -275,6 +278,8 @@ combos {
 /{
     
 macros {};
+
+macros {};
 keymap {
         compatible = "zmk,keymap";
 
@@ -289,10 +294,10 @@ keymap {
 
             bindings = <
 
-&kp Q  &kp W  &kp E     &kp R    &kp T      &kp Y    &kp U      &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D     &kp F    &kp G      &kp H    &kp J      &kp K      &kp L    &kp SEMI
-&kp Z  &kp X  &kp C     &kp V    &kp B      &kp N    &kp M      &kp COMMA  &kp DOT  &kp FSLH
-              &kp BSPC  &kp DEL  &kp ESC    &kp TAB  &kp SPACE  &kp RET
+&kp Q           &kp W           &kp E        &kp R             &kp T      &kp Y    &kp U              &kp I        &kp O            &kp P
+&hm LEFT_GUI A  &hm LEFT_ALT S  &hm LCTRL D  &hm LEFT_SHIFT F  &kp G      &kp H    &hm RIGHT_SHIFT J  &hm RCTRL K  &hm RIGHT_ALT L  &hm RIGHT_GUI SEMICOLON
+&kp Z           &kp X           &kp C        &kp V             &kp B      &kp N    &kp M              &kp COMMA    &kp DOT          &kp FSLH
+                                &kp BSPC     &kp DEL           &kp ESC    &kp TAB  &kp SPACE          &kp RET
 >;
         };
 
