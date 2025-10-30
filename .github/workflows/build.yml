@@ -11,3 +11,5 @@ on:
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build.yml@main
+    with:
+      config_path: config
