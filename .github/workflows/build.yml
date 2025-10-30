@@ -10,12 +10,4 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout ZMK Config
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-
-      - name: Build firmware
-        uses: zmkfirmware/zmk-build@main
+    uses: zmkfirmware/zmk/.github/workflows/build.yml@main
