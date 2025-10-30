@@ -1,4 +1,4 @@
-name: Build ZMK Firmware
+name: Build ZMK firmware
 
 on:
   push:
@@ -12,10 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout ZMK Config
+      - name: Checkout config
         uses: actions/checkout@v3
         with:
           submodules: recursive
 
       - name: Build firmware
-        uses: zmkfirmware/zmk-build@main
+        uses: zmkfirmware/zmk-action-build@main
