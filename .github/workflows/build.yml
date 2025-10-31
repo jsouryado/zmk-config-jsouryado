@@ -11,11 +11,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout ZMK config
+      - name: Checkout your ZMK config
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
+      - name: Clone latest ZMK main
+        run: |
+          git clone --depth 1 https://github.com/zmkfirmware/zmk.git zmk
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip ninja-build wget git cmake dfu-util
+          pip3 install west
+
+      - name: Initialize Zephyr workspace
+        run: |
+          west init -l zmk/app
+          west update
+
       - name: Build firmware
-        uses: zmkfirmware/zmk-build@main
+        run: |
+          west build -s zmk/app -b nice_nano_v2 -- -DZMK_CONFIG=config -DSHIELD=jsouryado_left
+          cp build/zephyr/zmk.uf2 firmware-jsouryado-left-nice_nano_v2.uf2
