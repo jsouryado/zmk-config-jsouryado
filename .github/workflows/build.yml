@@ -1,29 +1,15 @@
-name: Build ZMK Firmware
+name: Build ZMK firmware
 
 on:
   push:
     branches:
-      - master
       - main
+      - master
   pull_request:
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout config
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      # Pull the latest ZMK main branch at build time
-      - name: Fetch latest ZMK
-        run: |
-          git clone --depth 1 https://github.com/zmkfirmware/zmk.git /tmp/zmk
-          echo "ZMK_PATH=/tmp/zmk" >> $GITHUB_ENV
-
-      - name: Build firmware
-        uses: zmkfirmware/zmk-action-build@main
-        with:
-          zmk-path: ${{ env.ZMK_PATH }}
+    uses: zmkfirmware/zmk/.github/workflows/build.yml@main
+    with:
+      config_path: config
