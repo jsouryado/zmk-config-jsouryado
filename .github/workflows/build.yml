@@ -38,7 +38,7 @@ jobs:
         working-directory: zmk
         run: |
           west build -p always -s app -d ../build/left -b nice_nano_v2 \
-            -- -DZMK_CONFIG=../config/boards/shields/jsouryado/jsouryado_left.conf -DSHIELD=jsouryado
+            -- -DZMK_CONFIG=../config/boards/shields/jsouryado/jsouryado_left.conf  -DBOARD_ROOT=../config -DSHIELD=jsouryado 
           cp ../build/left/zephyr/zmk.uf2 ../firmware-jsouryado-left-nice_nano_v2.uf2
 
       - name: Upload firmware artifact
