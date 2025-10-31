@@ -18,8 +18,7 @@ jobs:
           submodules: recursive
 
       - name: Clone latest ZMK main
-        run: |
-          git clone --depth 1 https://github.com/zmkfirmware/zmk.git zmk
+        run: git clone --depth 1 https://github.com/zmkfirmware/zmk.git zmk
 
       - name: Install dependencies
         run: |
@@ -27,17 +26,20 @@ jobs:
           sudo apt-get install -y python3-pip ninja-build git cmake dfu-util
           pip3 install west
 
+      # Initialise the Zephyr workspace inside zmk/ and run west from there
       - name: Initialise Zephyr workspace
+        working-directory: zmk
         run: |
-          west init -l zmk/app        # create .west in repo root
-          west update                 # fetch Zephyr + modules
-          west zephyr-export          # export Zephyr CMake path
+          west init -l app
+          west update
+          west zephyr-export
 
       - name: Build LEFT firmware
+        working-directory: zmk
         run: |
-          west build -p always -s zmk/app -d build/left -b nice_nano_v2 \
-            -- -DZMK_CONFIG=config -DSHIELD=jsouryado_left
-          cp build/left/zephyr/zmk.uf2 firmware-jsouryado-left-nice_nano_v2.uf2
+          west build -p always -s app -d ../build/left -b nice_nano_v2 \
+            -- -DZMK_CONFIG=../config -DSHIELD=jsouryado_left
+          cp ../build/left/zephyr/zmk.uf2 ../firmware-jsouryado-left-nice_nano_v2.uf2
 
       - name: Upload firmware artifact
         uses: actions/upload-artifact@v4
