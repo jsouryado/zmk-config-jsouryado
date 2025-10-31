@@ -1,4 +1,4 @@
-name: Build ZMK firmware
+name: Build ZMK left firmware
 
 on:
   push:
@@ -9,38 +9,38 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-left:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. Checkout your config repo
       - name: Checkout your ZMK config
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      # 2. Clone the official ZMK repo at the latest main branch
       - name: Clone latest ZMK main
         run: |
           git clone --depth 1 https://github.com/zmkfirmware/zmk.git zmk
 
-      # 3. Install build dependencies
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-pip ninja-build wget git cmake dfu-util
+          sudo apt-get install -y python3-pip ninja-build git cmake dfu-util
           pip3 install west
 
-      # 4. Initialise a Zephyr workspace at the root of this repo, not inside zmk/
       - name: Initialise Zephyr workspace
         run: |
-          west init -l zmk/app   # create workspace here using zmk/app as the manifest
-          cd zmk
-          west update
-          cd ..
+          west init -l zmk/app        # create .west in repo root
+          west update                 # fetch Zephyr + modules
+          west zephyr-export          # export Zephyr CMake path
 
-      # 5. Build the left-half firmware
-      - name: Build left firmware
+      - name: Build LEFT firmware
         run: |
-          west build -s zmk/app -b nice_nano_v2 -- -DZMK_CONFIG=config -DSHIELD=jsouryado_left
-          cp build/zephyr/zmk.uf2 firmware-jsouryado-left-nice_nano_v2.uf2
+          west build -p always -s zmk/app -d build/left -b nice_nano_v2 \
+            -- -DZMK_CONFIG=config -DSHIELD=jsouryado_left
+          cp build/left/zephyr/zmk.uf2 firmware-jsouryado-left-nice_nano_v2.uf2
+
+      - name: Upload firmware artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jsouryado-left
+          path: firmware-jsouryado-left-nice_nano_v2.uf2
