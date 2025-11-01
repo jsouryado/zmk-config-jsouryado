@@ -1,4 +1,7 @@
-if SHIELDS_JSOURYADO_LEFT
+# Copyright (c) 2021 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if JSOURYADO_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "jsouryado"
@@ -6,24 +9,11 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-config ZMK_USB
-    default y
-
-config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
-    default 1
-
-# Set this to ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS + your desired number of BT profiles (default is 5)
-config BT_MAX_CONN
-    default 5
-
-# Set this to the same number as BT_MAX_CONN
-config BT_MAX_PAIRED
-    default 5
-
 endif
 
-if SHIELDS_JSOURYADO_LEFT || SHIELDS_JSOURYADO_RIGHT
+if JSOURYADO_LEFT || JSOURYADO_RIGHT
 
 config ZMK_SPLIT
     default y
+
 endif
