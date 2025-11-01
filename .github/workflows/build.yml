@@ -1,48 +1,6 @@
-name: Build ZMK left firmware
-
-on:
-  push:
-    branches:
-      - main
-      - master
-  pull_request:
-  workflow_dispatch:
+name: Build ZMK firmware
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build-left:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout your ZMK config
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Clone latest ZMK main
-        run: git clone --depth 1 https://github.com/zmkfirmware/zmk.git zmk
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-pip ninja-build git cmake dfu-util
-          pip3 install west
-
-      # Initialise the Zephyr workspace inside zmk/ and run west from there
-      - name: Initialise Zephyr workspace
-        working-directory: zmk
-        run: |
-          west init -l app
-          west update
-          west zephyr-export
-
-      - name: Build LEFT firmware
-        working-directory: zmk
-        run: |
-          west build -p always -s app -d ../build/left -b nice_nano_v2 \
-            -- -DZMK_CONFIG=../config -DSHIELD=jsouryado -DBOARD_ROOT=../config/boards/shields/
-          cp ../build/left/zephyr/zmk.uf2 ../firmware-jsouryado-left-nice_nano_v2.uf2
-
-      - name: Upload firmware artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: jsouryado-left
-          path: firmware-jsouryado-left-nice_nano_v2.uf2
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
