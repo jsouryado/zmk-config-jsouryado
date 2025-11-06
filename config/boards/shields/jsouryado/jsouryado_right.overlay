@@ -24,8 +24,4 @@
                 <&gpio0 17 GPIO_ACTIVE_HIGH>;
 };
 
-/ {
-    chosen {
-        zmk,split-role = "peripheral";
-    };
-};
+
