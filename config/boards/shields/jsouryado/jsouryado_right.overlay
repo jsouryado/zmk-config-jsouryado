@@ -24,7 +24,9 @@
                 <&gpio0 17 GPIO_ACTIVE_HIGH>;
 };
 
-&wired_split {
-    compatible = "zmk,wired-split";
+/ {
+    wired_split {
+        compatible = "zmk,wired-split";
+        device = <&pro_micro_serial>;
+    };
 };
-
