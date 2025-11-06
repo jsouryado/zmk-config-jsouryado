@@ -6,9 +6,6 @@ if JSOURYADO_LEFT
 config ZMK_KEYBOARD_NAME
     default "jsouryado"
 
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
 endif
 
 if JSOURYADO_LEFT || JSOURYADO_RIGHT
