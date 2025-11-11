@@ -32,5 +32,4 @@
     status = "okay";
     current-speed = <57600>;
     pinctrl-0 = <&uart0_default>;
-    pinctrl-names = "default";
 };
