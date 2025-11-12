@@ -24,6 +24,25 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        cut {
+            bindings = <&kp K_CUT>;
+            key-positions = <31 4>;
+        };
+
+        copy {
+            bindings = <&kp K_COPY>;
+            key-positions = <14 31>;
+        };
+
+        paste {
+            bindings = <&kp K_PASTE>;
+            key-positions = <24 31>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
