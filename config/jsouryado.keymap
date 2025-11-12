@@ -80,10 +80,10 @@
 
         LAYER_Cursor {
             bindings = <
-&trans  &trans  &trans  &trans  &kp K_CUT      &kp INSERT  &kp K_UNDO      &kp UP       &kp K_REDO     &kp C_AC_CUT
-&trans  &trans  &trans  &trans  &kp K_CUT      &kp DELETE  &kp LEFT        &kp DOWN     &kp RIGHT      &kp C_AC_COPY
-&trans  &trans  &trans  &trans  &kp K_PASTE    &kp TAB     &kp HOME        &kp PAGE_UP  &kp PAGE_DOWN  &kp END
-                &trans  &trans  &trans         &trans      &kp C_AC_PASTE  &trans
+&trans  &trans  &trans  &trans  &kp K_CUT      &kp INSERT  &kp K_UNDO  &kp UP       &kp K_REDO     &kp LC(X)
+&trans  &trans  &trans  &trans  &kp K_CUT      &kp DELETE  &kp LEFT    &kp DOWN     &kp RIGHT      &kp LC(C)
+&trans  &trans  &trans  &trans  &kp K_PASTE    &kp TAB     &kp HOME    &kp PAGE_UP  &kp PAGE_DOWN  &kp END
+                &trans  &trans  &trans         &trans      &kp LC(V)   &trans
             >;
         };
 
