@@ -70,6 +70,15 @@
         };
     };
 
+    macros {
+        select: select {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(S) &kp LS(E) &kp LS(L) &kp LS(E) &kp LS(C) &kp LS(T) &kp SPACE &kp STAR &kp RET &kp LS(F) &kp LS(R) &kp LS(O) &kp LS(M)>;
+            label = "SELECT";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -110,10 +119,10 @@
 
         LAYER_SYMBOL {
             bindings = <
-&kp LBKT        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RBKT          &kp DOLLAR         &none  &none         &none      &none  &none
-&kp LEFT_BRACE  &kp EQUAL             &kp UNDER              &kp DOLLAR        &kp RIGHT_BRACE    &none  &kp ASTERISK  &kp POUND  &none  &kp DOUBLE_QUOTES
-&kp LESS_THAN   &kp BACKSLASH         &kp PERCENT            &kp GREATER_THAN  &kp EXCLAMATION    &none  &none         &none      &none  &none
-                                      &kp AMPS               &kp APOSTROPHE    &kp AT             &none  &none         &none
+&kp LBKT        &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RBKT          &kp DOLLAR         &none    &none         &none      &none  &none
+&kp LEFT_BRACE  &kp EQUAL             &kp UNDER              &kp DOLLAR        &kp RIGHT_BRACE    &select  &kp ASTERISK  &kp POUND  &none  &kp DOUBLE_QUOTES
+&kp LESS_THAN   &kp BACKSLASH         &kp PERCENT            &kp GREATER_THAN  &kp EXCLAMATION    &none    &none         &none      &none  &none
+                                      &kp AMPS               &kp APOSTROPHE    &kp AT             &none    &none         &none
             >;
         };
 
