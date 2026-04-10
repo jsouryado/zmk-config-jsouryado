@@ -7,5 +7,3 @@ config SHIELD_JSOURYADO_LEFT
 config SHIELD_JSOURYADO_RIGHT
     def_bool $(shields_list_contains,jsouryado_right)
 
-config SHIELD_JSOURYADO_DONGLE
-    def_bool $(shields_list_contains,jsouryado_dongle)
