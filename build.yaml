@@ -1,4 +1,4 @@
-# This file generates the GitHub Actions matrix.
+c# This file generates the GitHub Actions matrix.
 # For simple board + shield combinations, add them to the top level board and
 # shield arrays, for more control, add individual board + shield combinations
 # to the `include` property. You can also use the `cmake-args` property to
@@ -36,3 +36,4 @@ include:
     shield: jsouryado_dongle
     config: boards/shields/jsouryado/jsouryado_dongle.conf
     artifact-name: jsouryado-dongle
+		cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
