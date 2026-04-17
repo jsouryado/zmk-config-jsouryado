@@ -36,4 +36,4 @@ include:
     shield: jsouryado_dongle
     config: boards/shields/jsouryado/jsouryado_dongle.conf
     artifact-name: jsouryado-dongle
-		cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
